@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css"> -->
+<style>
+canvas 
+{
+    /* margin-left: 16.5%; */
+    border:2px solid #000000;
+    background-image:url("media/BG.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* body
+{
+
+    background-color: aqua;
+} */
+
+</style>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
+<!-- <script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+
+
+</head>
+<body onload="startGame()">
+<script>
+// var collect = [];
+var collect1;
+var collect2;
+var collect3;
+var exit;
+// var collect5;
+var myGamePiece;
+var chunk1;
+var chunk2;
+var chunk3;
+var chunk4;
+var chunk5;
+var chunk6;
+var chunk7;
+var chunk8;
+var chunk9;
+var chunk10;
+var chunk11;
+var chunk12;
+var chunk13;
+var chunk14;
+var chunk15;
+var chunk16;
+var chunk17;
+var chunk18;
+var chunk19;
+var chunk20;
+var chunk21;
+var chunk22;
+var chunk23;
+var chunk24;
+var chunk25;
+var chunk26;
+var chunk27;
+var chunk28;
+var chunk29;
+var chunk30;
+
+var chunk31;
+var chunk32;
+var chunk33;
+var chunk34;
+var chunk35;
+var chunk36;
+var chunk37;
+var chunk38;
+
+var chunk39;
+var chunk40;
+var chunk41;
+
+var chunk42;
+var chunk43;
+var chunk44;
+var chunk45;
+var chunk46;
+var chunk47;
+var chunk48;
+
+var chunk49;
+var chunk50;
+var chunk51;
+var chunk52;
+var chunk53;
+
+var FG;
+function startGame() 
+{    
+    FG = new component(1216, 768, "media/FG.png", 0, 0, "image");
+    collect1 = new component(32, 32, "media/booster.jpg", 224, 448, "image");
+    collect2 = new component(32, 32, "media/booster.jpg", 608, 320, "image");
+    collect3 = new component(32, 32, "media/booster.jpg", 800, 576, "image");
+    exit = new component(32, 32, "media/exit.jpg", 1120, 672, "image");
+    myGamePiece = new component(32, 32, "purple", 656, 715, "ship");
+
+    chunk1=new component(192, 128, "rgba(100,100,100, 0)", 0, 0);
+    chunk2=new component(128, 96, "rgba(100,100,100, 0)", 192, 0);
+    chunk3=new component(128, 128, "rgba(100,100,100, 0)", 320, 0);
+    chunk4=new component(128, 160, "rgba(100,100,100, 0)", 448, 0);
+    chunk5=new component(160, 256, "rgba(100,100,100, 0)", 576, 0);
+    chunk6=new component(32, 32, "rgba(100,100,100, 0)", 512, 160);
+    chunk7=new component(32, 64, "rgba(100,100,100, 0)", 544, 160);
+    chunk8=new component(64, 224, "rgba(100,100,100, 0)", 736, 0);
+    chunk9=new component(64, 192, "rgba(100,100,100, 0)", 800, 0);
+    chunk10=new component(96, 160, "rgba(100,100,100, 0)", 864, 0);
+    chunk11=new component(128, 192, "rgba(100,100,100, 0)", 960, 0);
+    chunk12=new component(128, 224, "rgba(100,100,100, 0)", 1088, 0);
+    chunk13=new component(96, 64, "rgba(100,100,100, 0)", 1120, 224);
+    chunk14=new component(64, 64, "rgba(100,100,100, 0)", 1152, 288);
+    chunk15=new component(32, 96, "rgba(100,100,100, 0)", 1184, 352);
+    chunk16=new component(64, 192, "rgba(100,100,100, 0)", 1152, 448);
+    chunk17=new component(32, 64, "rgba(100,100,100, 0)", 1184, 640);
+    chunk18=new component(32, 32, "rgba(100,100,100, 0)", 1120, 576);
+    chunk19=new component(128, 64, "rgba(100,100,100, 0)", 1088, 704);
+    chunk20=new component(64, 96, "rgba(100,100,100, 0)", 1024, 672);
+    chunk21=new component(416, 32, "rgba(100,100,100, 0)", 608, 736);
+    chunk22=new component(64, 96, "rgba(100,100,100, 0)", 544, 672);
+    chunk23=new component(416, 64, "rgba(100,100,100, 0)", 128, 704);
+    chunk24=new component(128, 128, "rgba(100,100,100, 0)", 0, 640);
+    chunk25=new component(160, 128, "rgba(100,100,100, 0)", 0, 512);
+    chunk26=new component(128, 32, "rgba(100,100,100, 0)", 0, 480);
+    chunk27=new component(96, 128, "rgba(100,100,100, 0)", 0, 352);
+    chunk28=new component(64, 96, "rgba(100,100,100, 0)", 0, 256);
+    chunk29=new component(128, 64, "rgba(100,100,100, 0)", 0, 192);
+    chunk30=new component(160, 64, "rgba(100,100,100, 0)", 0, 128);
+
+    chunk31=new component(32, 96, "rgba(100,100,100, 0)", 256, 224);
+    chunk32=new component(96, 160, "rgba(100,100,100, 0)", 288, 192);
+    chunk33=new component(64, 32, "rgba(100,100,100, 0)", 320, 352);
+    chunk34=new component(64, 193, "rgba(100,100,100, 0)", 384, 224);
+    chunk35=new component(64, 160, "rgba(100,100,100, 0)", 448, 288);
+    chunk36=new component(32, 96, "rgba(100,100,100, 0)", 512, 320);
+    chunk37=new component(32, 32, "rgba(100,100,100, 0)", 416, 416);
+    chunk38=new component(32, 32, "rgba(100,100,100, 0)", 448, 256);
+
+    chunk39=new component(64, 64, "rgba(100,100,100, 0)", 640, 480);
+    chunk40=new component(64, 64, "rgba(100,100,100, 0)", 672, 416);
+    chunk41=new component(32, 32, "rgba(100,100,100, 0)", 704, 480);
+    
+    chunk42=new component(64, 64, "rgba(100,100,100, 0)", 864, 448);
+    chunk43=new component(64, 160, "rgba(100,100,100, 0)", 928, 416);
+    chunk44=new component(64, 224, "rgba(100,100,100, 0)", 992, 352);
+    chunk45=new component(32, 128, "rgba(100,100,100, 0)", 1056, 384);
+    chunk46=new component(64, 32, "rgba(100,100,100, 0)", 992, 576);
+    chunk47=new component(32, 64, "rgba(100,100,100, 0)", 1024, 608);
+    chunk48=new component(32, 32, "rgba(100,100,100, 0)", 896, 512);
+
+    chunk49=new component(64, 64, "rgba(100,100,100, 0)", 288, 640);
+    chunk50=new component(32, 32, "rgba(100,100,100, 0)", 352, 672);
+    chunk51=new component(32, 64, "rgba(100,100,100, 0)", 704, 672);
+    chunk52=new component(32, 32, "rgba(100,100,100, 0)", 736, 704);
+    chunk53=new component(64, 32, "rgba(100,100,100, 0)", 832, 704);
+
+    myGameArea.start();   
+}
+
+var myGameArea = 
+{
+    canvas : document.createElement("canvas"),    
+    start : function() 
+    {
+        this.canvas.width = 1216;
+        this.canvas.height = 768;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+
+        window.addEventListener('keydown', function (e) {
+            e.preventDefault();
+            myGameArea.keys = (myGameArea.keys || []);
+            myGameArea.keys[e.keyCode] = (e.type == "keydown");
+        })
+        window.addEventListener('keyup', function (e) {
+            myGameArea.keys[e.keyCode] = (e.type == "keydown");
+        })
+    },
+
+    stop : function() 
+    {
+        clearInterval(this.interval);
+    },
+
+    exitStop : function() 
+    {
+        clearInterval(this.interval);
+    },
+
+    clear : function()
+    {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y, type) 
+{
+    this.type = type;
+    if (type == "image" || type == "ship") 
+    {
+        this.image = new Image();
+        this.image.src = color;
+    }
+
+    this.width = width;
+    this.height = height;
+    this.speed = 0;
+    this.angle = 0;
+    this.moveAngleL = 0;
+    this.moveAngleR = 0;
+    this.x = x;
+    this.y = y; 
+    this.a = x;
+    this.b = y;
+    this.c = width;
+    this.d = height;
+
+    this.update = function() 
+    {
+        ctx = myGameArea.context;
+        if (type == "image") 
+        {
+            ctx.drawImage(this.image, 
+                this.x, 
+                this.y,
+                this.width, this.height);
+        }
+
+        else if(type == "text") 
+        {
+    
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        }   
+
+        else if(type == "ship") 
+        {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.angle);
+            ctx.fillStyle = color;
+            ctx.fillRect(this.width / -2, this.height / -2, this.width, this.height);
+            ctx.restore(); 
+        } 
+
+        else 
+        {         
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+
+    }
+
+    this.newPos = function() 
+    {
+        this.angle += this.moveAngleL * Math.PI / 180;
+        this.angle += this.moveAngleR * Math.PI / 180;
+        this.x += this.speed * Math.sin(this.angle);
+        this.y -= this.speed * Math.cos(this.angle);
+    }
+
+    this.crashWith = function(otherobj) 
+    {
+        var myleft = this.x -16;
+        var myright = (this.x -16) + (this.width);
+        var mytop = this.y - 16;
+        var mybottom = (this.y - 16) + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+    
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) 
+        {
+            crash = false; 
+        }
+
+        return crash;
+    }
+
+    this.collect = function()
+    {   
+        thirdTime = "yes";
+        secondTime = "yes";
+        firstTime = "yes";
+        //var x;
+        if(firstTime=="yes")
+        {
+            myGamePiece.moveAngleL = 0;
+            myGamePiece.moveAngleR = 0;
+            myGamePiece.speed = 1;
+            collect2.height = 0;
+            collect2.width = 0;
+            collect3.height = 0;
+            collect3.width = 0;
+            collect3.width = 0;
+            exit.height = 0;
+            exit.width = 0;
+            
+            if (myGameArea.keys && myGameArea.keys[37] ) {myGamePiece.moveAngleL = -1; }
+            if (myGameArea.keys && myGameArea.keys[39] ) {myGamePiece.moveAngleR = 1; }  
+            firstTime = "no";
+                    
+            if (myGamePiece.crashWith(collect1) && firstTime == "no") 
+            {
+                Do = true;
+            }
+
+            if(Do == true)
+            {   
+                myGamePiece.speed += 1;
+                collect1.height = 0;
+                collect1.width = 0;
+
+                collect2.height = 32;
+                collect2.width = 32;
+
+                console.log(myGamePiece.speed);
+                if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.moveAngleL += -1; }
+                if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.moveAngleR += 1; }  
+                console.log(myGamePiece.speed);
+            }
+        } 
+//--------------------------------------------------------------------------------------------------------------------------
+        if(secondTime=="yes")
+        {
+            myGamePiece.moveAngleL = 0;
+            myGamePiece.moveAngleR = 0;
+            myGamePiece.speed = 2;
+            collect3.height = 0;
+            collect3.width = 0;
+            exit.height = 0;
+            exit.width = 0;
+            console.log(myGamePiece.speed);
+            if (myGameArea.keys && myGameArea.keys[37] ) {myGamePiece.moveAngleL = -2; }
+            if (myGameArea.keys && myGameArea.keys[39] ) {myGamePiece.moveAngleR = 2; }  
+            secondTime = "no";
+            
+            console.log(myGamePiece.speed);
+        
+            if (myGamePiece.crashWith(collect2) && secondTime == "no") 
+            {
+                Re = true;
+            }
+
+            if(Re == true)
+            {   
+                myGamePiece.speed += 1;
+                collect2.height = 0;
+                collect2.width = 0;
+                collect3.height = 32;
+                collect3.width = 32;
+                console.log(myGamePiece.speed);
+                if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.moveAngleL += -1; }
+                if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.moveAngleR += 1; }  
+                console.log(myGamePiece.speed);
+            }
+        }
+//--------------------------------------------------------------------------------------------------------------------------
+        if(thirdTime=="yes")
+        {
+            myGamePiece.moveAngleL = 0;
+            myGamePiece.moveAngleR = 0;
+            myGamePiece.speed = 3;
+            console.log(myGamePiece.speed);
+            if (myGameArea.keys && myGameArea.keys[37] ) {myGamePiece.moveAngleL = -3; }
+            if (myGameArea.keys && myGameArea.keys[39] ) {myGamePiece.moveAngleR = 3; }  
+            thirdTime = "no";
+            
+            console.log(myGamePiece.speed);
+            
+
+            if (myGamePiece.crashWith(collect3) && thirdTime == "no") 
+            {
+                Me = true;
+            }
+
+            if(Me == true)
+            {   
+                myGamePiece.speed += 1;
+                collect3.height = 0;
+                collect3.width = 0;
+                exit.height = 32;
+                exit.width = 32;
+                console.log(myGamePiece.speed);
+                if (myGameArea.keys && myGameArea.keys[37]) {myGamePiece.moveAngleL += -1; }
+                if (myGameArea.keys && myGameArea.keys[39]) {myGamePiece.moveAngleR += 1; }  
+                console.log(myGamePiece.speed);
+            }
+        } 
+    }
+}
+
+function updateGameArea() 
+{  
+    myGameArea.clear();
+    // myGameArea.frameNo += 1;
+    // myScore.text = "SCORE: " + myGameArea.frameNo;
+
+    chunk1.update();
+    chunk2.update();
+    chunk3.update();
+    chunk4.update();
+    chunk5.update();
+    chunk6.update();
+    chunk7.update();
+    chunk8.update();
+    chunk9.update();
+    chunk10.update();
+    chunk11.update();
+    chunk12.update();
+    chunk13.update();
+    chunk14.update();
+    chunk15.update();
+    chunk16.update();
+    chunk17.update();
+    chunk18.update();
+    chunk19.update();
+    chunk20.update();
+    chunk21.update();
+    chunk22.update();
+    chunk23.update();
+    chunk24.update();
+    chunk25.update();
+    chunk26.update();
+    chunk27.update();
+    chunk28.update();
+    chunk29.update();
+    chunk30.update();
+
+    chunk31.update();
+    chunk32.update();
+    chunk33.update();
+    chunk34.update();
+    chunk35.update();
+    chunk36.update();
+    chunk37.update();
+    chunk38.update();
+
+    chunk39.update();
+    chunk40.update();
+    chunk41.update();
+
+    chunk42.update();
+    chunk43.update();
+    chunk44.update();
+    chunk45.update();
+    chunk46.update();
+    chunk47.update();
+    chunk48.update();
+
+    chunk49.update();
+    chunk50.update();
+    chunk51.update();
+    chunk52.update();
+    chunk53.update();
+    collect1.update();
+    collect2.update();
+    collect3.update();
+
+    exit.update();
+
+    FG.update();
+
+    if (myGamePiece.crashWith(chunk1)||myGamePiece.crashWith(chunk2)||myGamePiece.crashWith(chunk3)||myGamePiece.crashWith(chunk4)||myGamePiece.crashWith(chunk5)||myGamePiece.crashWith(chunk6)||myGamePiece.crashWith(chunk7)||myGamePiece.crashWith(chunk8)||myGamePiece.crashWith(chunk9)||myGamePiece.crashWith(chunk10))
+    {
+    myGameArea.stop();
+    }  
+    
+    if (myGamePiece.crashWith(chunk11)||myGamePiece.crashWith(chunk12)||myGamePiece.crashWith(chunk13)||myGamePiece.crashWith(chunk14)||myGamePiece.crashWith(chunk15)||myGamePiece.crashWith(chunk16)||myGamePiece.crashWith(chunk17)||myGamePiece.crashWith(chunk18)||myGamePiece.crashWith(chunk19)||myGamePiece.crashWith(chunk20))
+    {
+    myGameArea.stop();
+    }
+    
+    if (myGamePiece.crashWith(chunk21)||myGamePiece.crashWith(chunk22)||myGamePiece.crashWith(chunk23)||myGamePiece.crashWith(chunk24)||myGamePiece.crashWith(chunk25)||myGamePiece.crashWith(chunk26)||myGamePiece.crashWith(chunk27)||myGamePiece.crashWith(chunk28)||myGamePiece.crashWith(chunk29)||myGamePiece.crashWith(chunk30))
+    {
+    myGameArea.stop();
+    } 
+    
+    if (myGamePiece.crashWith(chunk31)||myGamePiece.crashWith(chunk32)||myGamePiece.crashWith(chunk33)||myGamePiece.crashWith(chunk34)||myGamePiece.crashWith(chunk35)||myGamePiece.crashWith(chunk36)||myGamePiece.crashWith(chunk37)||myGamePiece.crashWith(chunk38)||myGamePiece.crashWith(chunk39)||myGamePiece.crashWith(chunk40))
+    {
+    myGameArea.stop();
+    }  
+
+    if (myGamePiece.crashWith(chunk41)||myGamePiece.crashWith(chunk42)||myGamePiece.crashWith(chunk43)||myGamePiece.crashWith(chunk44)||myGamePiece.crashWith(chunk45)||myGamePiece.crashWith(chunk6)||myGamePiece.crashWith(chunk47)||myGamePiece.crashWith(chunk48)||myGamePiece.crashWith(chunk49)||myGamePiece.crashWith(chunk50))
+    {
+    myGameArea.stop();
+    }  
+
+    if (myGamePiece.crashWith(chunk51)||myGamePiece.crashWith(chunk52)||myGamePiece.crashWith(chunk53))
+    {
+    myGameArea.stop();
+    } 
+    
+    if (exit.crashWith(myGamePiece))
+    {
+        myGameArea.exitStop();
+    }
+
+    myGamePiece.newPos();    
+    myGamePiece.update();
+    myGamePiece.collect();
+}
+</script>
+
+</body>
+</html>

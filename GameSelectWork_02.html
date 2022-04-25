@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<!-- <link href="css/GameCollection.css" rel="stylesheet" type="text/css" /> -->
+<title>GameCollection</title>
+</head>
+
+<style>
+*{box-sizing: border-box;}
+
+@font-face 
+{
+    font-family: game;
+    src: url(fonts/VIDEOPHREAK.ttf);
+}
+
+@font-face 
+{
+    font-family: title;
+    src: url(fonts/Ibiza\ Crystal\ Personal\ Use.ttf);
+}
+
+@font-face 
+{
+    font-family: LRP;
+    src: url(fonts/BungeeInline-Regular.ttf);
+}
+
+@font-face 
+{
+    font-family: arrow;
+    src: url(fonts/PIZZADUDEPOINTERS.ttf);
+}
+
+body
+{
+    background-color: black;
+}
+
+img
+{
+    width: 100%;
+    height: auto;
+
+} 
+
+section 
+{
+    position: relative; 
+	display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    background-image: url("media/BGtest.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border: 2px magenta solid;
+    border-radius: 20px;
+
+    min-height: 800px;
+    max-height: 1000px;
+    
+}
+
+section > div 
+{
+    display: flex;
+    font-family: game;
+    margin: 10px;
+    text-align: center;
+    justify-content: center;
+
+
+}
+
+section > figure 
+{
+    display: flex;
+    font-family: game;
+    flex-direction: column;
+    max-width: 700px;
+    height: auto;
+
+}
+
+header
+{
+    font-size: 50px;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;  
+    
+}
+
+#title
+{
+    font-family: title; 
+    font-size: 60px; 
+    background-color: black; 
+    color:deepskyblue;
+    border-radius: 50px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 5px magenta ; border-style: double;
+    width: 50%;
+}
+
+#classics
+{
+    margin-top: -5%;
+    font-size: 40px;
+    padding-left: 0%;
+    font-family: game;
+    
+}
+
+button
+{
+	margin-top: 20px;
+	width:150px;
+	height: 50px;
+    font-size: 30px;
+    background-color: black;
+    font-family: arrow;
+
+}
+
+.CabinetSelect
+{
+    display: flex;
+    width: 700px;
+    height: 524px; 
+    border: orangered 10px; 
+    border-radius: 20px; border-style: ridge; 
+    box-shadow: -3px 3px 10px yellow, -3px 3px 10px yellow, 3px -3px 10px yellow;
+    background-image:url("media/ArcadeBG.jpg");
+}
+
+.gameName
+{
+    position: absolute; 
+    background-color:black;
+    color: orange; border:4px orange; border-style:double;  
+    margin-top: 15%; 
+    width: 700px;
+    color:aliceblue;
+}
+
+@media screen and (max-width:1595px)
+{
+    section 
+    {
+        position: relative; 
+        display: flex;
+
+        flex-wrap:wrap;
+        justify-content: center;
+        align-items: center;
+        background-image: url("media/BGtest.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        min-height: 800px;
+        max-height: 1200px;    
+    }
+
+    #title
+    {
+        width: 65%;
+    }
+}
+</style>
+
+<body>
+<header style="margin-bottom: 0.5%; display: flex; justify-content: center;">
+<div id="title">Mike's Amazing Game Collection</div>
+</header>
+    <section>  
+        <div id="dragDrop" class="gameName" style="opacity: 1;">
+            <h1>MUSHROOM DRAG<br>KINGDOM DROP</h1>
+        </div>
+        <div id="cubeDude" class="gameName" style="opacity: 0;">
+            <h1>SPEED<br>CUBE</h1>
+        </div>
+        <div id="UFOcrash" class="gameName" style="opacity: 0;">
+            <h1>UFO<br>CRASH!</h1>
+        </div>
+
+        <figure style="margin-top: 5%;">
+        <h1 id="classics" style="color: white; text-align: center;">Three Arcade Classics</h1>
+        <div  class="CabinetSelect">
+            <img src="media/pngFrames/CabinetPickStill.png">
+        </div>
+            <span style="text-align: center; padding-left: 0px; ">
+
+                <button type="button" style="line-height: 20px; border-radius: 15px 0px 0px 15px; color: yellow; border:4px yellow; border-style:double;" 
+                id="left" onclick="selectGame('l');">a</button>
+                
+                <button style="line-height: 20px; width: 160px; height: 60px; font-size: 30px; color: orange; border:4px orange; border-style:double; font-family: LRP;" 
+                id="play" onclick="playGame();">play</button>
+
+                <button style="line-height: 20px; border-radius: 0px 15px 15px 0px; color: red;  border:4px red; border-style:double;" 
+                id="right" onclick="selectGame('r');">e</button><br> 
+            </span>
+        </figure>
+    </section>
+    <script src="js/GameCollection.js"></script>
+</body>
+</html>
+    
