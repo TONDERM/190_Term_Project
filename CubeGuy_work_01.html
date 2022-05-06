@@ -13,11 +13,11 @@ canvas
     background-size: contain;
 }
 
-/* body
+body
 {
 
     background-color: aqua;
-} */
+}
 
 </style>
 <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script> -->
@@ -28,12 +28,10 @@ canvas
 </head>
 <body onload="startGame()">
 <script>
-// var collect = [];
 var collect1;
 var collect2;
 var collect3;
 var exit;
-// var collect5;
 var myGamePiece;
 var chunk1;
 var chunk2;
@@ -94,8 +92,11 @@ var chunk52;
 var chunk53;
 
 var FG;
+var countDown;
+
 function startGame() 
 {    
+    countDown = new component("120px", "Consolas", "#282828", 340, 240, "text");
     FG = new component(1216, 768, "media/FG.png", 0, 0, "image");
     collect1 = new component(32, 32, "media/booster.jpg", 224, 448, "image");
     collect2 = new component(32, 32, "media/booster.jpg", 608, 320, "image");
@@ -160,8 +161,14 @@ function startGame()
     chunk51=new component(32, 64, "rgba(100,100,100, 0)", 704, 672);
     chunk52=new component(32, 32, "rgba(100,100,100, 0)", 736, 704);
     chunk53=new component(64, 32, "rgba(100,100,100, 0)", 832, 704);
+ 
+    myGameArea.start();  
+    //setTimeout(loadGame,6000);  
+}
 
-    myGameArea.start();   
+function loadGame()
+{
+    myGameArea.start();  
 }
 
 var myGameArea = 
@@ -184,6 +191,13 @@ var myGameArea =
         window.addEventListener('keyup', function (e) {
             myGameArea.keys[e.keyCode] = (e.type == "keydown");
         })
+
+        
+    },
+    
+    ready : function()
+    {
+        setInterval(this.interval);
     },
 
     stop : function() 
@@ -401,13 +415,35 @@ function component(width, height, color, x, y, type)
         } 
     }
 }
-
+ 
 function updateGameArea() 
 {  
+   
     myGameArea.clear();
-    // myGameArea.frameNo += 1;
+    myGameArea.frameNo += 1;
     // myScore.text = "SCORE: " + myGameArea.frameNo;
 
+    // if(myGameArea.frameNo < 50 && myGameArea.frameNo > 0)
+    // {
+    //     countDown.text = "3";
+    //     countDown.update();
+    // }
+    // else if(myGameArea.frameNo < 100 && myGameArea.frameNo > 50)
+    // {
+    //     countDown.text = "2";
+    //     countDown.update();
+    // }
+    // else if(myGameArea.frameNo < 150 && myGameArea.frameNo > 100)
+    // {
+    //     countDown.text = "1";
+    //     countDown.update();
+    // }
+    // else
+    // {
+    //     countDown.text = "";
+    //     countDown.update();
+    // }
+    
     chunk1.update();
     chunk2.update();
     chunk3.update();

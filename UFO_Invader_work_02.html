@@ -36,8 +36,8 @@ var myScore;
 
 function startGame() 
 {    
-    myScore = new component("30px", "Consolas", "black", 550, 30, "text");
-    myGamePiece = new component(31, 16, "UFO.png", 10, 720, "image");
+    myScore = new component("30px", "Consolas", "white", 550, 30, "text");
+    myGamePiece = new component(41, 16, "UFO.png", 10, 720, "image");
     myFog = new component(1280,720, "Fog.png", 0, 0, "image");
     myGameArea.start();   
 }
@@ -272,7 +272,7 @@ function updateGameArea()
         minGap = 100;
         maxGap = 100;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        myObstacles.push(new component(10, height, "dirtTile.png", x, 0, "image"));
+        myObstacles.push(new component(10, height, "dirtTileTop.png", x, 0, "image"));
     }
 
     if (myGameArea.frameNo == 1 || everyinterval(250)) {
@@ -307,7 +307,7 @@ function updateGameArea()
         objects.push(new component(60, 60, "rock.png", spawn, y, "rock"));    
     }
 
-    if (myGameArea.frameNo == 200 || everyinterval(2)) {
+    if (myGameArea.frameNo == 200 || everyinterval(15)) {
         x = myGameArea.canvas.width;
         minHeight = 20;
         maxHeight = 60;
@@ -315,10 +315,10 @@ function updateGameArea()
         minGap = 20;
         maxGap = 300;
         gap = Math.floor(Math.random()*(maxGap-minGap+2)+minGap);
-        myObstacles3.push(new component(30, height, "dirtTileC.png", x, 0, "image"));
+        myObstacles3.push(new component(20, height, "dirtTileTop.png", x, 0, "image"));
     }
 
-    if (myGameArea.frameNo == 200 || everyinterval(2)) {
+    if (myGameArea.frameNo == 200 || everyinterval(15)) {
 
         x = myGameArea.canvas.width;
         minHeight = 240;
@@ -327,7 +327,7 @@ function updateGameArea()
         minGap = 420;
         maxGap = 440;
         gap = Math.floor(Math.random()*(maxGap-minGap+2)+minGap);
-        myObstacles4.push(new component(20, x - height - gap, "dirtTileD.png", x, height + gap, "image"));
+        myObstacles4.push(new component(20, x - height - gap, "dirtTileB.png", x, height + gap, "image"));
     }
     
     for (i = 0; i < myObstacles.length; i += 1) 
